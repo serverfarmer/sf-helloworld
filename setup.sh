@@ -5,4 +5,4 @@
 
 echo "Hello world from sf-example setup"
 
-ln -sf /opt/sf-helloworld/hello.sh /usr/local/bin/sf-hello
+ln -sf /opt/farm/ext/helloworld/hello.sh /usr/local/bin/sf-hello

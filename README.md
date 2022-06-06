@@ -1,16 +1,14 @@
-This example extension demonstrates, how to build real, useful extensions for Server
-Farmer.
+## Overview
 
-It contains 3 scripts:
+This example extension demonstrates, how to build real, useful extensions for Server Farmer.
 
-- setup.sh, which is executed during extension installation and is expected to install
-  and configure additional software packages etc.
-- hello.sh, which provides the example extension functionality (you are free to create
-  as many scripts as you need, and execute them either manually or from cron daemon)
-- uninstall.sh, which is executed during extension uninstallation and is expected
-  to remove any extension-related content outside /opt directory (however if extension
-  is just an installer of some external software, this software should be left intact)
+It contains 4 important files:
 
-Setup script makes a symbolic link /usr/local/bin/sf-hello pointing to hello.sh, so
-it can be executed in future by typing just "sf-hello" on console. When creating new
-extension, you can create similar links to your own scripts, to simplify using it.
+- `setup.sh` script, which is executed during extension installation - it can install and configure additional software packages, do some post-install configuration etc.
+- `uninstall.sh` script, which is executed before extension removal
+- `hello.sh` script, which provides the example extension functionality
+- `aliases` file, which defines /usr/local/bin aliases for scripts provided by the extension
+
+Both `setup.sh` and `uninstall.sh` scripts are optional.
+
+Aliases are symbolic links, installed and uninstalled with the extension, eg. `hello.sh` script will get `/usr/local/bin/sf-hello` symbolic link and will be runnable as `sf-hello`.
